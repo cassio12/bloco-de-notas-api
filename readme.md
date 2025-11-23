@@ -166,6 +166,32 @@ http://localhost:8000
 
 ---
 
+## 📘 Acessando a Documentação Swagger
+
+Este projeto inclui uma documentação completa da API utilizando **Swagger**, permitindo visualizar endpoints, testar requisições e entender cada rota de forma prática e intuitiva.
+
+### 🔗 Como acessar o Swagger
+
+Após iniciar o servidor, acesse no navegador:
+```
+http://localhost:8000/docs/
+```
+
+```yaml
+> Caso a porta da sua aplicação seja diferente, ajuste a URL conforme necessário.
+
+### 🧭 O que você encontrará no Swagger
+
+- Lista completa de endpoints da API  
+- Descrição detalhada de cada rota  
+- Parâmetros e modelos de dados  
+- Opção de testar requisições diretamente pela interface  
+- Exemplos de entrada e saída
+```
+
+
+---
+
 ## 📘 Observações Importantes
 - Atualizações **podem retornar os dados atualizados**, dependendo da implementação.
 - Deletes devem retornar apenas uma mensagem ou nada.
