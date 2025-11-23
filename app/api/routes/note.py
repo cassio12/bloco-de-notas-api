@@ -20,7 +20,6 @@ def get_db():
     finally:
         db.close()
 
-
 @router.post('/', response_model=NotesListResponse)
 def create_note_route(note: NoteCreate, db: Session = Depends(get_db)):
     new = create_note(db, note)
