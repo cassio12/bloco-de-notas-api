@@ -16,7 +16,7 @@ Tecnologias utilizadas:
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Estrutura principal do Projeto
 ```
 app/
  ├── api/
@@ -130,6 +130,28 @@ Todos com `orm_mode = True`.
   "tags": [1, 2]
 }
 ```
+
+---
+
+## 🧰 Ambiente virtual
+Antes de rodar o servidor, é **necessário ativar o ambiente virtual**, pois todas as dependências do projeto estão instaladas dentro dele (FastAPI, Uvicorn, SQLAlchemy, Pydantic etc.).
+ 
+ ### - 1. Criar o ambiente virtual(somente uma vez)
+```bash
+ python3 -m venv .venv
+```
+ ### - 2. Ativar o ambiente virtual
+ ```bash
+ source .venv/bin/activate
+ ```
+ ### - 3. Instalar dependências
+ ```bash
+ pip install -r requirements.txt
+ ```
+ ### - 4. Rodar o servidor
+ ```bash
+ uvicorn app.main:app --reload
+ ```
 
 ---
 
