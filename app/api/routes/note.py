@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.db.database import SessionLocal
-from app.schemas.note import NoteCreate, NoteResponse, NoteUpdate
+from app.schemas.note import NoteCreate, NoteResponse, NoteUpdate, NotesListResponse
 from app.crud.note import (
     create_note,
     get_note,
@@ -20,14 +20,14 @@ def get_db():
     finally:
         db.close()
 
-
-@router.post('/', response_model=NoteResponse)
+@router.post('/', response_model=NotesListResponse)
 def create_note_route(note: NoteCreate, db: Session = Depends(get_db)):
     new = create_note(db, note)
     if not new:
         raise HTTPException(status_code=400, detail="Erro ao criar a nota.")
 
-    return {'message': "Nota criada com sucesso.", "note": new}
+    notes = get_notes(db)
+    return {'message': "Nota criada com sucesso.", "notes": notes}
 
 @router.get('/', response_model=list[NoteResponse])
 def get_notes_route(db: Session = Depends(get_db)):
@@ -56,5 +56,5 @@ def delete_note_route(note_id: int, db: Session = Depends(get_db)):
 
     update_note = get_notes(db)
 
-    return {"message": "Nota deletada com sucesso.", "note": update_note}
+    return {"message": "Nota deletada com sucesso.", "notes": update_note}
     

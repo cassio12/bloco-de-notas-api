@@ -9,7 +9,7 @@ def create_note(db: Session, note: NoteCreate):
 
     db_note = Note(
         title=note.title,
-        constent=note.content,
+        content=note.content,
         tags=tags
     )
     db.add(db_note)
